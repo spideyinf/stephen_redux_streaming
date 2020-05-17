@@ -1,19 +1,23 @@
 import React from 'react'
+import flv from 'flv.js';
 import { connect } from 'react-redux'
 import { fetchStream } from '../../actions'
 
 const StreamShow = props => {
   const { fetchStream, match, stream } = props
+  const videoRef = React.useRef()
   React.useEffect(() => {
     fetchStream(match.params.id)
   })
   if (!stream) {
     return <div>Loading...</div>
   }
-  return <div>
-    <h1>{stream.title}</h1>
-    <h5>{stream.description}</h5>
-  </div>
+  return (
+    <div>
+      <video />
+      <h1>{stream.title}</h1>
+      <h5>{stream.description}</h5>
+    </div>)
 }
 
 const mapStateToProps = (state, ownProps) => {
