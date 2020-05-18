@@ -26,7 +26,7 @@ const GoogleAuth = props => {
         fetcher.isSignedIn.listen(onAuthChange)
       })
     })
-  }, [])
+  }, [isSignedIn])
 
   const onSignInClick = () => {
     authRef.current.signIn()
