@@ -7,13 +7,23 @@ import StreamEdit from './streams/StreamEdit'
 import StreamList from './streams/StreamList'
 import StreamShow from './streams/StreamShow'
 import history from '../history'
+import LanguageContext from '../contexts/LanguageContext';
 
 const App = () => {
+  const [lang, setLang] = React.useState('vietnamese')
   return (
     <div className="ui container">
       <Router history={history}>
         <div>
-          <Header />
+          <div className="item">
+            Select a languague:
+            &nbsp;
+            <i className="flag us" onClick={() => setLang('english')} />
+            <i className="flag vn" onClick={() => setLang('vietnamese')} />
+          </div>
+          <LanguageContext.Provider value={lang}>
+            <Header />
+          </LanguageContext.Provider>
           <Switch>
             <Route path='/' exact component={StreamList} />
             <Route path='/streams/new' exact component={StreamCreate} />
