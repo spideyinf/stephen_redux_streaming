@@ -1,9 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-import LanguageContext from '../../contexts/LanguageContext';
 
 const StreamForm = props => {
-  const lang = React.useContext(LanguageContext)
 
   const renderError = ({ error, touched }) => {
     if (touched && error) {
@@ -17,7 +15,6 @@ const StreamForm = props => {
 
   const renderInput = ({ input, label, meta }) => {
     const className = `field ${meta.error && meta.touched ? 'error' : ''}`
-    console.log('lang: ', lang)
     return (
       <div className={className}>
         <label>{label}</label>

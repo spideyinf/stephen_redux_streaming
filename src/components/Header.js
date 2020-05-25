@@ -1,14 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import GoogleAuthHook from './GoogleAuthHook'
-import Ads from './Ads'
 
 const Header = () => {
   return (
     <div>
       <div className="ui secondary pointing menu">
         <Link to="/" className="item" >
-          Streamy
+          <h4>
+            Twitch
+          </h4>
         </Link>
         <div className="right menu">
           <Link to="/" className="item" >
@@ -17,7 +18,6 @@ const Header = () => {
           <GoogleAuthHook />
         </div>
       </div>
-      <Ads />
     </div>
   )
 }
